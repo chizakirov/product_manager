@@ -1,0 +1,22 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<div class="container" style="text-align:center">
+  <h1>Products List</h1>
+
+  <div style = "border: 2px solid lightblue;" *ngFor = "let x of products">
+    <hr>
+    <p><img style = "width: 300px;" [src]="x.url" alt="some product picture"></p>
+    <p>{{ x.title }}</p>
+    <p>${{ x.price }}</p>
+    <p>{{ x._id }}</p>
+
+    <button class = "btn btn-success" [routerLink]="['edit', x._id]" >Edit</button>
+
+    <button class = "btn btn-warning" (click) = "delete(x._id)">Delete</button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
